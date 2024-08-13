@@ -1,8 +1,8 @@
 from flask import request, jsonify
-from app.blueprints.api import bp
-from app.extensions import db
-from app.models.clipboard import Clip
-from app.utilities import generate_token
+from clipschuss_server.blueprints.api import bp
+from clipschuss_server.extensions import db
+from clipschuss_server.models.clipboard import Clip
+from clipschuss_server.utilities import generate_token
 import logging
 
 

@@ -11,3 +11,16 @@ C:\Dev\ClipSchuss\ClipSchuss\obj\Debug\ClipSchuss.csproj.CoreCompileInputs.cache
 C:\Dev\ClipSchuss\ClipSchuss\obj\Debug\ClipSchuss.csproj.Up2Date
 C:\Dev\ClipSchuss\ClipSchuss\obj\Debug\ClipSchuss.exe
 C:\Dev\ClipSchuss\ClipSchuss\obj\Debug\ClipSchuss.pdb
+C:\Dev\ClipSchuss\Client\ClipSchuss\bin\Debug\ClipSchuss.exe.config
+C:\Dev\ClipSchuss\Client\ClipSchuss\bin\Debug\ClipSchuss.exe
+C:\Dev\ClipSchuss\Client\ClipSchuss\bin\Debug\ClipSchuss.pdb
+C:\Dev\ClipSchuss\Client\ClipSchuss\bin\Debug\Newtonsoft.Json.dll
+C:\Dev\ClipSchuss\Client\ClipSchuss\bin\Debug\Newtonsoft.Json.xml
+C:\Dev\ClipSchuss\Client\ClipSchuss\obj\Debug\ClipSchuss.csproj.AssemblyReference.cache
+C:\Dev\ClipSchuss\Client\ClipSchuss\obj\Debug\ClipSchuss.MainWindow.resources
+C:\Dev\ClipSchuss\Client\ClipSchuss\obj\Debug\ClipSchuss.Properties.Resources.resources
+C:\Dev\ClipSchuss\Client\ClipSchuss\obj\Debug\ClipSchuss.csproj.GenerateResource.cache
+C:\Dev\ClipSchuss\Client\ClipSchuss\obj\Debug\ClipSchuss.csproj.CoreCompileInputs.cache
+C:\Dev\ClipSchuss\Client\ClipSchuss\obj\Debug\ClipSchuss.csproj.Up2Date
+C:\Dev\ClipSchuss\Client\ClipSchuss\obj\Debug\ClipSchuss.exe
+C:\Dev\ClipSchuss\Client\ClipSchuss\obj\Debug\ClipSchuss.pdb

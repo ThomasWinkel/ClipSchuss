@@ -14,12 +14,14 @@ namespace ClipSchuss
 {
     internal class ClipHandler
     {
+        public Clip Clip { get; set; }
         private const string Server = "http://127.0.0.1:5000";
 
         public async Task<string> SendClip()
         {
             try
             {
+                Clip = null;
                 DataObject dataObject = (DataObject)Clipboard.GetDataObject();
                 string strDataObject = DataObjectToString(dataObject);
                 Dictionary<string, string> dict = new Dictionary<string, string>();
@@ -35,6 +37,12 @@ namespace ClipSchuss
                 Dictionary<string, string> message = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
                 if (message["message"] == "Ok")
                 {
+                    Clip = new Clip
+                    {
+                        Date = DateTime.Now,
+                        Direction = "Sent",
+                        Token = token + "#" + password
+                    };
                     Clipboard.SetText(token + "#" + password);
                     return "Successful sending clip to server.\nFind token in your clipboard: " + token + "#" + password;
                 }
@@ -51,6 +59,7 @@ namespace ClipSchuss
 
         public async Task<string> GetClip()
         {
+            Clip = null;
             string token_password = Clipboard.GetText();
             if (string.IsNullOrEmpty(token_password)) return "Invalid token.";
             if (!token_password.Contains("#")) return "Invalid token.";
@@ -58,8 +67,15 @@ namespace ClipSchuss
             string password = token_password.Split('#')[1];
             HttpClient httpClient = new HttpClient();
             var response = await httpClient.GetAsync(Server + "/api/get_clip/" + token);
+            //TODO: Check if received clip
             string strDataObject = await response.Content.ReadAsStringAsync();
             DataObject dataObject = StringToDataObject(StringCipher.Decrypt(strDataObject, password).Decompress());
+            Clip = new Clip
+            {
+                Date = DateTime.Now,
+                Direction = "Received",
+                Token = token_password
+            };
             Clipboard.SetDataObject(dataObject);
             return "Successful received clip from server.\nNow you can paste it into your application.";
         }

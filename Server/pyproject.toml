@@ -1,5 +1,5 @@
 [project]
-name = "app"
+name = "clipschuss_server"
 version = "0.0.1"
 authors = [
   { name="Thomas Winkel", email="mail@thomas-winkel.de" },
@@ -15,7 +15,7 @@ classifiers = [
 ]
 dependencies = [
     "flask",
-    "flask-sqlalchemy",
+    "flask-sqlalchemy"
 ]
 
 [build-system]

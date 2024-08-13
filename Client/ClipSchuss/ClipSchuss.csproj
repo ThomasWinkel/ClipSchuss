@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clip.cs" />
     <Compile Include="ClipHandler.cs" />
     <Compile Include="DataObjectFormat.cs" />
     <Compile Include="KeyboardHook.cs" />

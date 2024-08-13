@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace ClipSchuss
@@ -7,6 +8,7 @@ namespace ClipSchuss
     {
         KeyboardHook hook = new KeyboardHook();
         ClipHandler ClipHandler = new ClipHandler();
+        BindingList<Clip> Clips = new BindingList<Clip>();
 
         public MainWindow()
         {
@@ -32,6 +34,8 @@ namespace ClipSchuss
             hook.KeyPressed += new EventHandler<KeyPressedEventArgs>(Hook_KeyPressed);
             hook.RegisterHotKey(ClipSchuss.ModifierKeys.Control | ClipSchuss.ModifierKeys.Alt, Keys.C);
             hook.RegisterHotKey(ClipSchuss.ModifierKeys.Control | ClipSchuss.ModifierKeys.Alt, Keys.V);
+
+            dataGridView.DataSource = Clips;
         }
 
         private void SystemTrayIcon_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -74,13 +78,34 @@ namespace ClipSchuss
             if (e.Key.ToString() == "C")
             {
                 string message = await ClipHandler.GetClip();
+                if (ClipHandler.Clip != null)
+                {
+                    Clips.Add(new Clip {
+                        Date = ClipHandler.Clip.Date,
+                        Direction = ClipHandler.Clip.Direction,
+                        Token = ClipHandler.Clip.Token
+                    });
+                }
                 SystemTrayIcon.ShowBalloonTip(2000, "ClipSchuss", message, ToolTipIcon.Info);
             }
             else if (e.Key.ToString() == "V")
             {
                 string message = await ClipHandler.SendClip();
+                if (ClipHandler.Clip != null)
+                {
+                    Clips.Add(new Clip {
+                        Date = ClipHandler.Clip.Date,
+                        Direction = ClipHandler.Clip.Direction,
+                        Token = ClipHandler.Clip.Token
+                    });
+                }
                 SystemTrayIcon.ShowBalloonTip(2000, "ClipSchuss", message, ToolTipIcon.Info);
             }
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("TODO","ClipSchuss");
         }
     }
 }

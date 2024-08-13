@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from config import Config
-from app.extensions import db, migrate
+from clipschuss_server.extensions import db, migrate
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -11,7 +11,7 @@ def create_app(config_class=Config):
     migrate.init_app(app, db)
 
     # Register blueprints here
-    from app.blueprints.api import bp as api_bp
+    from clipschuss_server.blueprints.api import bp as api_bp
     app.register_blueprint(api_bp, url_prefix='/api')
 
     # Serve SPA

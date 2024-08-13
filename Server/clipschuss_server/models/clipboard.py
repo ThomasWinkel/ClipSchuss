@@ -1,4 +1,4 @@
-from app.extensions import db
+from clipschuss_server.extensions import db
 from datetime import datetime
 from sqlalchemy import func
 from sqlalchemy.orm import Mapped, mapped_column

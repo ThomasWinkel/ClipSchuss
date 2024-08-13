@@ -3,4 +3,4 @@ from flask import Blueprint
 bp = Blueprint('visio', __name__)
 
 
-from app.blueprints.api import routes
+from clipschuss_server.blueprints.api import routes
