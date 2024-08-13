@@ -73,12 +73,12 @@ namespace ClipSchuss
         {
             if (e.Key.ToString() == "C")
             {
-                string message = await ClipHandler.SendClip();
+                string message = await ClipHandler.GetClip();
                 SystemTrayIcon.ShowBalloonTip(2000, "ClipSchuss", message, ToolTipIcon.Info);
             }
             else if (e.Key.ToString() == "V")
             {
-                string message = await ClipHandler.GetClip();
+                string message = await ClipHandler.SendClip();
                 SystemTrayIcon.ShowBalloonTip(2000, "ClipSchuss", message, ToolTipIcon.Info);
             }
         }
